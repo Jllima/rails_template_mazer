@@ -28,6 +28,13 @@ gem "thruster", require: false
 
 gem "image_processing", "~> 1.2"
 
+gem "pundit"
+gem "rolify"
+gem "rswag"
+gem "sidekiq"
+gem "redis"
+gem "view_component"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -40,8 +47,20 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "dotenv"
+  gem "database_cleaner"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "guard-rspec", require: false
+  gem "json_matchers"
+  gem "json-schema_builder"
+  gem "pry-rails"
+  gem "rspec-rails", "~> 8.0.0"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
 end
 
 group :development do
   gem "web-console"
+  gem "rubycritic", require: false
 end
