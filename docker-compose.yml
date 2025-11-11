@@ -9,7 +9,7 @@ services:
     volumes:
       - data_dev:/var/lib/postgresql/data
       - shared_data:/var/shared
-    env_file: .env.dev
+    env_file: .env
     # restart: always
     ports:
       - "5437:5432"
