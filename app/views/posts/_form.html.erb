@@ -1,8 +1,8 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with model: post, data: { controller: "parsley", parsley_validate: true, parsley_trigger: "change", parsley_focus: "first" } do |form| %>
+  ...
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,18 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control", placeholder: "Título", data: {parsley_required: "true"} %>
+      </div>
+    </div>
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, class: "form-control", placeholder: "Descrição", data: {parsley_required: "true"} %>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-end">
+      <%= form.submit "Cadastrar", class: "btn btn-primary me-1 mb-1" %>
+    </div>
   </div>
 <% end %>
